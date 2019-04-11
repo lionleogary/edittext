@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -12,6 +13,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        getWindow().setBackgroundDrawableResource(R.drawable.jj);
     }
     int size=30;
     public void response(View v){
@@ -25,6 +27,14 @@ public class MainActivity extends AppCompatActivity {
         txv.setTextSize(size);
         txv.setText(ed1.getText().toString()+",您好\n"+"您的BMI是:");
 
+        float height=Float.parseFloat(ed2.getText().toString());
+        float weight=Float.parseFloat(ed3.getText().toString());
 
+
+
+    }
+    private float calculateBMI(float ht ,float wt){
+        float BBMI=(float)(wt/Math.pow((ht/100),2));
+        return BBMI;
     }
 }
