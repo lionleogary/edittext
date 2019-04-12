@@ -4,4 +4,8 @@
     <string name="name">香腸</string>
     <string name="height" >身高</string>
     <string name="weight" >體重</string>
+    <string name="fatstring">你太胖了</string>
+
+    <string name="slimstring">你太瘦了</string>
+    <string name="good">很棒</string>
 </resources>

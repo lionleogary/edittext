@@ -13,7 +13,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        getWindow().setBackgroundDrawableResource(R.drawable.jj);
+        getWindow().setBackgroundDrawableResource(R.drawable.mpeople);
     }
     int size=30;
     public void response(View v){
@@ -29,6 +29,16 @@ public class MainActivity extends AppCompatActivity {
 
         float height=Float.parseFloat(ed2.getText().toString());
         float weight=Float.parseFloat(ed3.getText().toString());
+        float bmi1=calculateBMI(height,weight);
+        String bmi2 =String.valueOf(bmi1);
+
+        txv.setTextSize(size);
+        txv.setText(ed1.getText().toString()+
+                "hello"+
+                ",\n"+
+                "your bmi is"+
+                bmi2);
+        Toast.makeText(this, standardBMI(bmi1), Toast.LENGTH_SHORT).show();
 
 
 
@@ -36,5 +46,20 @@ public class MainActivity extends AppCompatActivity {
     private float calculateBMI(float ht ,float wt){
         float BBMI=(float)(wt/Math.pow((ht/100),2));
         return BBMI;
+    }
+    private String standardBMI(double st){
+        String alert="";
+        if(st>25){
+            alert=String.valueOf(getResources().getString(R.string.fatstring));
+            getWindow().setBackgroundDrawableResource(R.drawable.fpeople);
+        }
+        else if(st<18.5){
+            alert=String.valueOf(getResources().getString(R.string.slimstring));
+            getWindow().setBackgroundDrawableResource(R.drawable.speople);
+        }
+        else{
+            alert=String.valueOf(getResources().getString(R.string.good));
+        }
+        return alert;
     }
 }

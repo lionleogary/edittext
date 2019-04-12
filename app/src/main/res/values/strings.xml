@@ -3,4 +3,7 @@
     <string name="name" >name</string>
     <string name="height" >height</string>
     <string name="weight" >weight</string>
+    <string name="fatstring">you are too fat</string>
+    <string name="slimstring">you are too slim</string>
+    <string name="good">your body is good</string>
 </resources>
